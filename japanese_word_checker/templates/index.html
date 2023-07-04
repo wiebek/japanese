@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content_head %}
+    <title>Japanese word list</title>
+{% endblock content_head %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Japanese word lists</h1>
+
+    <h3> Show world map for specific phylum </h3>
+    <form action="{{ url_for('home') }}" method = "POST" enctype = "multipart/form-data">
+        <label for="excel_sheet">Chapter:</label>
+        <select class="js-example-basic-single" name="excel_sheet" id="excel_sheet">
+            {% for sheet in excel_sheets %}
+                <option value="{{sheet}}">{{sheet}}</option>
+            {% endfor %}
+        </select>
+        <input type=submit value=select>
+    </form>
+
+</div>
+
+{% endblock content %}
